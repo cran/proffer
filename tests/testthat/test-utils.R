@@ -1,9 +1,3 @@
-test_that("%||%", {
-  expect_equal("x" %||% "y", "x")
-  expect_equal(character(0) %||% "y", character(0))
-  expect_equal(NULL %||% "y", "y")
-})
-
 test_that("%fl%", {
   tmp <- tempfile()
   file.create(tmp)
@@ -17,9 +11,9 @@ test_that("random_port()", {
   expect_equal(length(port), 1L)
 })
 
-test_that("trn()", {
-  expect_equal(trn(TRUE, "a", "b"), "a")
-  expect_equal(trn(FALSE, "a", "b"), "b")
+test_that("if_any()", {
+  expect_equal(if_any(TRUE, "a", "b"), "a")
+  expect_equal(if_any(FALSE, "a", "b"), "b")
 })
 
 test_that("with_safe_path(), nonempty case", {

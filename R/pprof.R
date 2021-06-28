@@ -7,7 +7,7 @@
 #'   for setup instructions.
 #' @inheritParams pprof
 #' @examples
-#' \dontrun{
+#' if (identical(Sys.getenv("PROFFER_EXAMPLES"), "true")) {
 #' test_pprof()
 #' }
 test_pprof <- function(
@@ -45,7 +45,7 @@ test_pprof <- function(
 #' @param ... Additional arguments passed on to [Rprof()]
 #'   via [record_pprof()].
 #' @examples
-#' \dontrun{
+#' if (identical(Sys.getenv("PROFFER_EXAMPLES"), "true")) {
 #' # Start a pprof virtual server in the background.
 #' px <- pprof(replicate(1e2, sample.int(1e4)))
 #' # Terminate the server.
@@ -82,7 +82,7 @@ pprof <- function(
 #' @param rprof Path to profiling samples generated
 #'   by `Rprof()` or [record_rprof()].
 #' @examples
-#' \dontrun{
+#' if (identical(Sys.getenv("PROFFER_EXAMPLES"), "true")) {
 #' rprof <- record_rprof(replicate(1e2, sample.int(1e4)))
 #' # Start a pprof virtual server in the background.
 #' px <- serve_rprof(rprof)
@@ -129,7 +129,7 @@ serve_rprof <- function(
 #' @param verbose Logical, whether to print console messages
 #'   such as the URL of the local `pprof` server.
 #' @examples
-#' \dontrun{
+#' if (identical(Sys.getenv("PROFFER_EXAMPLES"), "true")) {
 #' pprof <- record_pprof(replicate(1e2, sample.int(1e4)))
 #' # Start a pprof virtual server in the background.
 #' px <- serve_pprof(pprof)
@@ -162,16 +162,18 @@ serve_pprof <- function(
 #' @return Port number, positive integer of length 1.
 #' @param lower Integer of length 1, lower bound of the port number.
 #' @param upper Integer of length 1, upper bound of the port number.
+#' @examples
+#' random_port()
 random_port <- function(lower = 49152L, upper = 65355L) {
   sample(seq.int(from = lower, to = upper, by = 1L), size = 1L)
 }
 
 browse_port <- function(host, port, process, verbose) {
   spinner <- cli::make_spinner()
-  trn(verbose, spinner$spin(), NULL)
+  if_any(verbose, spinner$spin(), NULL)
   while (!pingr::is_up(destination = host, port = port)) {
-    trn(process$is_alive(), Sys.sleep(0.01), stop0(process$read_all_error()))
-    trn(verbose, spinner$spin(), NULL)
+    if_any(process$is_alive(), Sys.sleep(0.01), stop0(process$read_all_error()))
+    if_any(verbose, spinner$spin(), NULL)
   }
   spinner$finish()
   url <- paste0("http://", host, ":", port)

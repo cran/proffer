@@ -1,11 +1,3 @@
-`%||%` <- function(x, y) {
-  if (is.null(x)) {
-    y
-  } else {
-    x
-  }
-}
-
 `%fl%` <- function(x, y) {
   if (!all(file.exists(x))) {
     y
@@ -18,7 +10,7 @@ stop0 <- function(...) {
   stop(..., call. = FALSE)
 }
 
-trn <- function(condition, x, y) {
+if_any <- function(condition, x, y) {
   if (condition) {
     x
   } else {

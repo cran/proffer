@@ -1,3 +1,12 @@
+# proffer 0.1.3
+
+* Reduce check time of examples.
+
+# proffer 0.1.2
+
+* Remove superfluous operator `%||%`.
+* Skip Go installation tests on CRAN.
+
 # proffer 0.1.1
 
 * Address a CRAN check error for R-devel on Windows: lengthen the time of a test to avoid empty protocol buffers.
