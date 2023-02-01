@@ -144,7 +144,7 @@ serve_pprof <- function(
   verbose = TRUE
 ) {
   server <- sprintf("%s:%s", host, port)
-  args <- c("-http", server, pprof)
+  args <- c("-http", server, "-no_browser", pprof)
   process <- serve_pprof_impl(args)
   if (browse) {
     browse_port(host, port, process, verbose)
@@ -155,17 +155,19 @@ serve_pprof <- function(
   invisible(process)
 }
 
-#' @title Choose a random TCP port.
+#' @title Choose a random free TCP port.
 #' @export
-#' @description Choose a random TCP port that is unlikely to be occupied
-#'   by another process.
+#' @description Choose a random free TCP port.
+#' @details This function is a simple wrapper around
+#'   `parallelly::freePort()` with the default port range
+#'   covering ephemeral ports only.
 #' @return Port number, positive integer of length 1.
 #' @param lower Integer of length 1, lower bound of the port number.
 #' @param upper Integer of length 1, upper bound of the port number.
 #' @examples
 #' random_port()
-random_port <- function(lower = 49152L, upper = 65355L) {
-  sample(seq.int(from = lower, to = upper, by = 1L), size = 1L)
+random_port <- function(lower = 49152L, upper = 65535L) {
+  parallelly::freePort(ports = seq.int(from = lower, to = upper, by = 1L))
 }
 
 browse_port <- function(host, port, process, verbose) {
@@ -184,7 +186,7 @@ show_url <- function(host, port) {
   cli::cli_ul()
   cli::cli_li("url: {.path http://{host}:{port}/ui/flamegraph}")
   cli::cli_li("host: {.path {host}}")
-  cli::cli_li("port: {.path {port}}")
+  cli::cli_li("port: {.path {as.character(port)}}")
   cli::cli_end()
 }
 
