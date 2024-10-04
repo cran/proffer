@@ -1,6 +1,6 @@
 Package: proffer
 Title: Profile R Code and Visualize with 'Pprof'
-Version: 0.1.6
+Version: 0.2.0
 Encoding: UTF-8
 Language: en-US
 License: MIT + file LICENSE
@@ -12,7 +12,7 @@ Authors@R: c(
     given = c("William", "Michael"),
     family = "Landau",
     role = c("aut", "cre"),
-    email = "will.landau@gmail.com",
+    email = "will.landau.oss@gmail.com",
     comment = c(ORCID = "0000-0003-1878-3253")
   ),
   person(
@@ -33,7 +33,7 @@ Description: Like similar profiling tools,
   To learn about the implementations and methodologies of
   'pprof', 'profile', and protocol buffers,
   visit <https://github.com/google/pprof>.
-  <https://developers.google.com/protocol-buffers>,
+  <https://protobuf.dev>,
   and <https://github.com/r-prof/profile>, respectively.
 Depends: R (>= 3.3.0)
 Imports: cli (>= 2.0.0), parallelly (>= 1.26.0), pingr (>= 2.0.1),
@@ -42,12 +42,12 @@ Imports: cli (>= 2.0.0), parallelly (>= 1.26.0), pingr (>= 2.0.1),
 Suggests: testthat (>= 2.1.0)
 SystemRequirements: Graphviz (https://www.graphviz.org/), pprof
         (https://github.com/google/pprof)
-RoxygenNote: 7.2.3
+RoxygenNote: 7.3.2
 NeedsCompilation: no
-Packaged: 2023-02-01 09:34:19 UTC; landau
+Packaged: 2024-10-03 15:36:52 UTC; C240390
 Author: William Michael Landau [aut, cre]
     (<https://orcid.org/0000-0003-1878-3253>),
   Eli Lilly and Company [cph]
-Maintainer: William Michael Landau <will.landau@gmail.com>
+Maintainer: William Michael Landau <will.landau.oss@gmail.com>
 Repository: CRAN
-Date/Publication: 2023-02-01 09:50:02 UTC
+Date/Publication: 2024-10-04 09:30:01 UTC
