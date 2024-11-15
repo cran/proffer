@@ -1,6 +1,6 @@
 Package: proffer
 Title: Profile R Code and Visualize with 'Pprof'
-Version: 0.2.1
+Version: 0.2.2
 Encoding: UTF-8
 Language: en-US
 License: MIT + file LICENSE
@@ -37,16 +37,16 @@ Description: Like similar profiling tools,
   and <https://github.com/r-prof/profile>, respectively.
 Depends: R (>= 3.3.0)
 Imports: cli (>= 2.0.0), parallelly (>= 1.26.0), pingr (>= 2.0.1),
-        processx (>= 3.4.0), profile (>= 1.0), RProtoBuf (>= 0.4.14),
-        utils, withr (>= 2.1.2)
+        processx (>= 3.4.0), profile (>= 1.0), R.utils, RProtoBuf (>=
+        0.4.14), utils, withr (>= 2.1.2)
 Suggests: testthat (>= 2.1.0)
 SystemRequirements: pprof (https://github.com/google/pprof)
 RoxygenNote: 7.3.2
 NeedsCompilation: no
-Packaged: 2024-10-30 18:40:56 UTC; C240390
+Packaged: 2024-11-15 15:44:59 UTC; C240390
 Author: William Michael Landau [aut, cre]
     (<https://orcid.org/0000-0003-1878-3253>),
   Eli Lilly and Company [cph]
 Maintainer: William Michael Landau <will.landau.oss@gmail.com>
 Repository: CRAN
-Date/Publication: 2024-10-30 19:00:02 UTC
+Date/Publication: 2024-11-15 16:00:02 UTC

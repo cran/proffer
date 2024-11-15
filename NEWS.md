@@ -1,3 +1,7 @@
+# proffer 0.2.2
+
+* Add `seconds_timeout`.
+
 # proffer 0.2.1
 
 * Use `path.expand()` on path to profiling samples.
